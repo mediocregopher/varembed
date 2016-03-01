@@ -18,6 +18,11 @@ var (
 func main() {
 	flag.Parse()
 
+	if *in == "" || *out == "" || *pkg == "" || *varname == "" {
+		flag.PrintDefaults()
+		return
+	}
+
 	b, err := ioutil.ReadFile(*in)
 	if err != nil {
 		panic(err)
